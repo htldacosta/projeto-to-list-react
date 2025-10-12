@@ -1,42 +1,72 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.app {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+h1 {
   text-align: center;
+  color: #333;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+form {
+  display: flex;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  background-color: #5c67f2;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
 }
 
-.card {
-  padding: 2em;
+form button {
+  border-radius: 0 5px 5px 0;
 }
 
-.read-the-docs {
-  color: #888;
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border-left: 5px solid #5c67f2;
+}
+
+.todo-item div {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-item button {
+  background-color: #ff6b6b;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.todo-item button:first-of-type {
+  background-color: #20c997;
 }

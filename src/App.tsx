@@ -1,28 +1,31 @@
 import React, { useState } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import { Todo } from "./types"; // Importa nossa interface
 import "./App.css";
 
 function App() {
-  const [todos, setTodos] = useState([
-    // { text: "Task teste", isCompleted: false },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text, isCompleted: false }];
-    setTodos(newTodos);
+  const addTodo = (text: string) => {
+    const newTodo: Todo = {
+      id: Date.now(),
+      text,
+      isCompleted: false,
+    };
+    setTodos([...todos, newTodo]);
   };
 
-  const toggleTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
-    setTodos(newTodos);
+  const toggleTodo = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      )
+    );
   };
 
-  const removeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1); //
-    setTodos(newTodos);
+  const removeTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (

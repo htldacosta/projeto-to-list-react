@@ -1,13 +1,20 @@
 import React from "react";
 import TodoItem from "./TodoItem";
+import { Todo } from "../types";
 
-function TodoList({ todos, toggleTodo, removeTodo }) {
+interface TodoListProps {
+  todos: Todo[];
+  toggleTodo: (id: number) => void;
+  removeTodo: (id: number) => void;
+}
+
+function TodoList({ todos, toggleTodo, removeTodo }: TodoListProps) {
   return (
     <div className="todo-list">
-      {todos.map((todo, index) => (
+      {todos.map((todo) => (
         <TodoItem
-          key={index} // Chave única para o React identificar cada item
-          index={index}
+          key={todo.id}
+          index={todo}
           todo={todo}
           toggleTodo={toggleTodo}
           removeTodo={removeTodo}

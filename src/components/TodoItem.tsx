@@ -1,6 +1,13 @@
 import React from "react";
+import { Todo } from "../types";
 
-function TodoItem({ todo, index, toggleTodo, removeTodo }) {
+interface TodoItemProps {
+  todo Todo;
+  toggleTodo: (id: number) => void;
+  removeTodo: (id: number) => void;
+}
+
+function TodoItem({ todo, toggleTodo, removeTodo }: TodoItemProps) {
   return (
     <div
       className="todo-item"
@@ -8,10 +15,10 @@ function TodoItem({ todo, index, toggleTodo, removeTodo }) {
     >
       <span>{todo.text}</span>
       <div>
-        <button onClick={() => toggleTodo(index)}>
+        <button onClick={() => toggleTodo(todo.id)}>
           {todo.isCompleted ? "Desfazer" : "Completar"}
         </button>
-        <button onClick={() => removeTodo(index)}>Remover</button>
+        <button onClick={() => removeTodo(todo.id)}>Remover</button>
       </div>
     </div>
   );

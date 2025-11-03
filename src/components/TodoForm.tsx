@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
-function TodoForm({ addTodo }) {
-  const [value, setValue] = useState("");
+interface TodoFormProps {
+  addTodo: (text: strings) => void;
+}
+function TodoForm({ addTodo }: TodoFormProps) {
+  const [value, setValue] = useState<string>("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Impede o recarregamento da página
-    if (!value) return; // Não adiciona tarefa vazia
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!value) return;
     addTodo(value);
-    setValue(""); // Limpa o campo de input
+    setValue("");
   };
 
   return (
@@ -16,7 +19,9 @@ function TodoForm({ addTodo }) {
         type="text"
         className="input"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e: React.ChangeEvent<HtmlInputElement>) =>
+          setValue(e.target.value)
+        }
         placeholder="Adicionar nova tarefa..."
       />
       <button type="submit">Adicionar</button>

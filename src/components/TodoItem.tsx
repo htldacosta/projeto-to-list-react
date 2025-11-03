@@ -2,7 +2,7 @@ import React from "react";
 import { Todo } from "../types";
 
 interface TodoItemProps {
-  todo Todo;
+  todo: Todo;
   toggleTodo: (id: number) => void;
   removeTodo: (id: number) => void;
 }
